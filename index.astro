@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+<BaseLayout title="AI Coding Agents, MCP Servers & SKILL.md Workflows" description="Practical setup guides, error fixes, and calculators for Claude Code, Cursor, Codex CLI, and OpenClaw.">
+  <h1>AI Coding Agents, MCP Servers &amp; SKILL.md Workflows</h1>
+  <p>Practical setup guides and error fixes. No paid tools required. Start with the guide below, then follow the cluster as new posts are published.</p>
+  <h2>Latest guides</h2>
+  <ul>
+    {posts.map((post) => (
+      <li><a href={`/ai-coding-agents-blog/${post.data.slug}/`}>{post.data.title}</a> — {post.data.description}</li>
+    ))}
+  </ul>
+  <h2>Coming in this cluster</h2>
+  <ul>
+    <li>MCP Server Failed to Connect: the cross-tool diagnostic checklist</li>
+    <li>SKILL.md Template for Claude Code</li>
+    <li>Claude Code vs Cursor vs Codex</li>
+    <li>Cursor MCP Setup, Codex CLI Skills Setup, OpenClaw Setup Guide</li>
+    <li>AI Coding Agent Token Cost Calculator</li>
+    <li>AGENTS.md vs CLAUDE.md vs Cursor Rules, and Best MCP Servers for Coding</li>
+  </ul>
+  <p>Full plan: see the topic cluster in the project workspace. Posts are published here one at a time, with internal links added as each spoke goes live.</p>
+</BaseLayout>
